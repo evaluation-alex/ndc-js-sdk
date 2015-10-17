@@ -46,25 +46,54 @@ And then make a request.
 ```javascript
 var NDC = require('ndc-client');
 var ndc = new NDC(require('./config.json'));
+
+/* OneWay with multiple pax */
 var reqData = {
-    departure: {
-        date: new Date('2016-01-01'),
-        airportCode: 'MUC'
+    pointOfSaleEvent: {
+        code: 9,
+        definition: 'Shop'
     },
-    arrival: {
-        airportCode: 'LHR'
-    }
+    onds: [{
+        flights: [{
+            departure: {
+                date: new Date('2016-01-01'),
+                airportCode: 'MUC'
+            },
+            arrival: {
+                airportCode: 'LHR'
+            },
+            airline: TestData.config.sender
+        }]
+    }],
+    cabin: 'C',
+    travelers: [
+        /* two anonymous adults */
+        {
+            anonymous: true,
+            count: 2,
+            type: 'ADT'
+        },
+        /* 1 anonymous children */
+        {
+            anonymous: true,
+            count: 1,
+            type: 'CNN'
+        },
+        /* 1 anonymous infant */
+        {
+            anonymous: true,
+            count: 1,
+            type: 'INF'
+        }
+    ]
 };
 
 // Direct request
 ndc.request('AirShopping', reqData, function (err, response) {
     console.log(response);
 });
-```
 
-Or if you need to work with message body:
-
-```javascript
+//Or if you need to work with message body:
 var message = ndc.messages.AirShopping(reqData);
 
 // print JSON message.
@@ -79,3 +108,5 @@ message.request(function (err, response) {
     console.log(response); 
 });
 ```
+
+For further details on each message parameters, have a look to the test folder in the `test-data.js` file, with examples.
