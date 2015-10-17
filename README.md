@@ -19,12 +19,20 @@ Have a config ready:
   "cityCode": "NYC",
   "providerName": "THISNTHAT NDC GATEWAY",
   "endpoint": "http://thisnthat.example.com/ndcapi",
+  "APIAuthKey": "xxxxxxxxxxxxxxxxxxxxxxxxx",
   "agency": {
     "IATANumber": "0000XXXX",
     "name": "ThisNThat Agency",
     "userId": "developer.test",
     "type": "TravelManagementCompany",
     "email": "info@thisnthat.example.com"
+  },
+  "sender": {
+  	"id": "C9",
+	"name": "Kronos Air",
+	"type": "TravelManagementCompany",
+	"email": "test@example.org",
+	"IATANumber": "00000001"
   },
   "airline": {
     "id": "XX",
@@ -36,7 +44,7 @@ Have a config ready:
 And then make a request.
 
 ```javascript
-var NDC = require('ndc');
+var NDC = require('ndc-client');
 var ndc = new NDC(require('./config.json'));
 var reqData = {
     departure: {
