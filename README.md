@@ -36,7 +36,7 @@ Have a config ready:
 And then make a request.
 
 ```javascript
-var NDC = require('ndc');
+var NDC = require('ndc-client');
 var ndc = new NDC(require('./config.json'));
 var reqData = {
     departure: {
