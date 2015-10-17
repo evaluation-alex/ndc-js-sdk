@@ -62,7 +62,7 @@ var reqData = {
             arrival: {
                 airportCode: 'LHR'
             },
-            airline: TestData.config.sender
+            airline: config.sender
         }]
     }],
     cabin: 'C',
