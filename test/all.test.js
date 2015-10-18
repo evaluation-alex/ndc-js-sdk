@@ -74,17 +74,15 @@ describe('NDC client', function () {
         });
     });
     describe('Order management messages', function () {
+        var orderID;
         describe('should handle OrderCreate messages', function () {
             it('should receive a successful "OrderViewRS" response element', function (done) {
-                // ndc.messages.AirShopping(testData.AirShopping[2]).request(function (err, asrs) {
-                var reqData = testData.OrderCreate[0];
-                // reqData.shoppingRS.id = asrs.AirShoppingRS.ShoppingResponseIDs.ResponseID;
-                ndc.messages.OrderCreate(reqData).request(function (err, data) {
+                ndc.messages.OrderCreate(testData.OrderCreate[0]).request(function (err, data) {
                     should.not.exist(err);
                     should.exist(data.OrderViewRS.Success);
+                    orderID = data.OrderViewRS.Response.Order.OrderID._;
                     done();
                 });
-                // });
             });
         });
         describe('should handle OrderList messages', function () {
@@ -99,7 +97,9 @@ describe('NDC client', function () {
         });
         describe('should handle OrderRetrieve messages', function () {
             it('should receive a successful "OrderViewRS" response element', function (done) {
-                ndc.messages.OrderRetrieve(testData.OrderRetrieve[0]).request(function (err, data) {
+                var reqData = testData.OrderRetrieve[0];
+                reqData.order.id = orderID;
+                ndc.messages.OrderRetrieve(reqData).request(function (err, data) {
                     should.not.exist(err);
                     should.exist(data.OrderViewRS.Success);
                     done();
@@ -108,7 +108,9 @@ describe('NDC client', function () {
         });
         describe('should handle OrderCancel messages', function () {
             it('should receive a successful "OrderCancelRS" response element', function (done) {
-                ndc.messages.OrderCancel(testData.OrderCancel[0]).request(function (err, data) {
+                var reqData = testData.OrderCancel[0];
+                reqData.order.id = orderID;
+                ndc.messages.OrderCancel(reqData).request(function (err, data) {
                     should.not.exist(err);
                     should.exist(data.OrderCancelRS.Success);
                     done();

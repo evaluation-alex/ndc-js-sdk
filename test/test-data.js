@@ -177,11 +177,11 @@ TestData.AirShopping = [
         onds: [{
             flights: [{
                 departure: {
-                    date: new Date('2016-04-03'),
-                    airportCode: 'FRA'
+                    date: new Date('2016-05-05'),
+                    airportCode: 'ARN'
                 },
                 arrival: {
-                    airportCode: 'BCN'
+                    airportCode: 'FRA'
                 }
             }]
         }],
@@ -449,11 +449,10 @@ TestData.OrderCreate = [
             {
                 key: 'PAX1',
                 type: 'ADT',
-                anonymous: true,
                 residenceCode: 'US',
-                /*                age: {
+                age: {
                     birthDate: '1989-09-09'
-                },*/
+                },
                 name: {
                     given: 'Mithalesh',
                     middle: 'Ignatius',
@@ -484,13 +483,13 @@ TestData.OrderCreate = [
         ],
         shoppingRS: {
             owner: 'C9',
-            id: 'RE6c07bf8de1a04859bda7a027ad11d665',
+            id: 'REe5fcc483c54442088ba66a4539e7fceb',
             offers: [{
                 owner: 'C9',
                 id: '1',
                 items: [{
                     owner: 'C9',
-                    id: '1#M#109939774#109952838',
+                    id: '1#M#108115576#108050875',
                     passenger: 'PAX1',
                     associatedServices: [{
                         owner: 'C9',
@@ -524,39 +523,43 @@ TestData.OrderCreate = [
         services: [{
             key: 'SV1',
             owner: 'C9',
-            id: '1011',
-            name: 'Complimentary Meal',
+            id: '1012',
+            name: 'Excess Baggage',
+            encoding: 'BG',
+            code: 'XBG',
             feeMethod: 'OC',
-            description: 'Complimentary three course meal and drinks',
+            description: 'To / from all destinations: 1 bag, up to 23kg',
             media: {
-                id: 'iconerror.png',
-                link: 'http://kronos.jrtechnologies.com/ServiceImage/iconerror.png'
+                id: 'baggage.jpg',
+                link: 'http://kronos.jrtechnologies.com/ServiceImage/baggage.jpg'
             },
             settlement: {
                 code: 'AD',
                 definition: 'Internal Airline Document'
             },
             price: {
-                total: 0,
-                passengerReference: 'SH1'
+                total: 100,
+                passengerReference: 'PAX1'
             }
         }, {
             key: 'SV2',
             owner: 'C9',
-            id: '1017',
-            name: 'Meal',
+            id: '1014',
+            name: 'Excess Baggage',
+            encoding: 'BG',
+            code: 'XBG',
             feeMethod: 'OC',
-            description: 'Vegetarian Vegan Meal',
+            description: 'To / from all destinations:3+ bag, up to 23kg',
             media: {
-                id: 'int_economy_promo.jpg',
-                link: 'http://kronos.jrtechnologies.com/ServiceImage/int_economy_promo.jpg'
+                id: 'baggage.jpg',
+                link: 'http://kronos.jrtechnologies.com/ServiceImage/baggage.jpg'
             },
             settlement: {
                 code: 'AD',
                 definition: 'Internal Airline Document'
             },
             price: {
-                total: 2400,
+                total: 10100,
                 passengerReference: 'SH1'
             }
         }]
