@@ -10,7 +10,8 @@ TestData.config = [
         countryCode: 'US',
         cityCode: 'WAS',
         language: 'en',
-        endpoint: 'kronos.jrtechnologies.com', // 'http://iata.api.mashery.com/kronos/api',
+        endpoint: 'http://iata.api.mashery.com/kronos/api',
+        APIAuthKey: 'xxxxxxxxxxxxxxxxxxxxxxxxx',
         airline: {
             id: 'C9',
             name: 'Kronos Air',
@@ -38,6 +39,7 @@ TestData.config = [
         cityCode: 'WAS',
         language: 'en',
         endpoint: 'http://iata.api.mashery.com/kronos/api',
+        APIAuthKey: 'xxxxxxxxxxxxxxxxxxxxxxxxx',
         airline: {
             id: 'C9',
             name: 'Kronos Air',
