@@ -34,7 +34,7 @@ TestData.config = [
         latitude: 38.89756,
         longitude: -77.03650,
         providerName: 'BA NDC GATEWAY',
-        courrencyCode: 'USD',
+        courrencyCode: 'EUR',
         countryCode: 'US',
         cityCode: 'WAS',
         language: 'en',
@@ -80,6 +80,7 @@ TestData.AirShopping = [
             }]
         }],
         cabin: 'C',
+        fareCodes: ['BRO'],
         travelers: [
             /* two anonymous adults */
             {
@@ -137,6 +138,7 @@ TestData.AirShopping = [
             }]
         }],
         cabin: 'M',
+        fareCodes: ['BRO'],
         travelers: [
             /* one regognized adult */
             {
@@ -187,6 +189,7 @@ TestData.AirShopping = [
                 }
             }]
         }],
+        fareCodes: ['BRO'],
         travelers: [
             /* one anonymous adult */
             {
