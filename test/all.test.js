@@ -4,7 +4,9 @@ var should = require('should'),
     testData = require('./test-data'),
     NDC = require('../');
 
-testData.config[0].APIAuthKey = testData.config[1].APIAuthKey = process.env.API_KEY;
+if (!testData.config[0].APIAuthKey) {
+    testData.config[0].APIAuthKey = testData.config[1].APIAuthKey = process.env.API_KEY;
+}
 
 var ndc = new NDC(testData.config[0]);
 
