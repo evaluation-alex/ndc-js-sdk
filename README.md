@@ -1,12 +1,22 @@
 # NDC client
 
+[![Build Status](https://travis-ci.org/iata-ndc/ndc-js-sdk.png?branch=master)](https://travis-ci.org/iata-ndc/ndc-js-sdk)
+
 A Node.js client wrapper for IATA's NDC API.
 
 ## Installation
 
-Use npm to install from repo
+Use npm to install:
 
-    npm install https://github.com/iata-ndc/ndc-js-sdk.git --save
+    npm install ndc-client
+
+Or install from repo:
+
+    npm install iata-ndc/ndc-js-sdk
+
+Or just clone with git:
+
+    git clone https://github.com/iata-ndc/ndc-js-sdk.git
 
 ## Usage
 
