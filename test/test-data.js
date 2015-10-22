@@ -11,7 +11,7 @@ TestData.config = [
         cityCode: 'WAS',
         language: 'en',
         endpoint: 'http://iata.api.mashery.com/kronos/api',
-        APIAuthKey: 'htxg7pfqj5gaj95y74v4zyfv',
+        APIAuthKey: 'xxxxxxxxxxxxxxxxxxxxxxxx',
         airline: {
             id: 'C9',
             name: 'Kronos Air',
@@ -39,7 +39,7 @@ TestData.config = [
         cityCode: 'WAS',
         language: 'en',
         endpoint: 'http://iata.api.mashery.com/kronos/api',
-        APIAuthKey: 'htxg7pfqj5gaj95y74v4zyfv',
+        APIAuthKey: 'xxxxxxxxxxxxxxxxxxxxxxxx',
         airline: {
             id: 'C9',
             name: 'Kronos Air',

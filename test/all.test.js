@@ -4,7 +4,8 @@ var should = require('should'),
     testData = require('./test-data'),
     NDC = require('../');
 
-if (!testData.config[0].APIAuthKey) {
+// Override API Key with env variable
+if (process.env.API_KEY) {
     testData.config[0].APIAuthKey = testData.config[1].APIAuthKey = process.env.API_KEY;
 }
 
