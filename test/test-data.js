@@ -1,5 +1,41 @@
 'use strict';
 var TestData = {};
+/* sample regognized adult */
+var passenger = {
+    key: 'PAX1',
+    type: 'ADT',
+    residenceCode: 'US',
+    age: {
+        birthDate: '1989-09-09'
+    },
+    name: {
+        given: 'Mithalesh',
+        middle: 'Ignatius',
+        surname: 'Yadav'
+    },
+    contact: {
+        email: 'mithalesh@jrtechnologies.com',
+        phone: '9867236088',
+        address: {
+            street: '22 Main Street',
+            city: 'FRA',
+            postalCode: '14201',
+            country: 'DE'
+        }
+    },
+    profileID: '123',
+    gender: 'Male',
+    fqtvs: [{
+        programID: 'kR',
+        providerID: 'KR',
+        accountNumber: '992227471658222'
+    }],
+    foids: [{
+        type: 'PP',
+        id: '333444666'
+    }]
+}
+
 TestData.config = [
     /* Kronos Air config data*/
     {
@@ -449,43 +485,7 @@ TestData.OrderCreate = [
             code: 1,
             definition: 'Order or buy'
         },
-        travelers: [
-            /* one regognized adult */
-            {
-                key: 'PAX1',
-                type: 'ADT',
-                residenceCode: 'US',
-                age: {
-                    birthDate: '1989-09-09'
-                },
-                name: {
-                    given: 'Mithalesh',
-                    middle: 'Ignatius',
-                    surname: 'Yadav'
-                },
-                contact: {
-                    email: 'mithalesh@jrtechnologies.com',
-                    phone: '9867236088',
-                    address: {
-                        street: '22 Main Street',
-                        city: 'FRA',
-                        postalCode: '14201',
-                        country: 'DE'
-                    }
-                },
-                profileID: '123',
-                gender: 'Male',
-                fqtvs: [{
-                    programID: 'kR',
-                    providerID: 'KR',
-                    accountNumber: '992227471658222'
-                }],
-                foids: [{
-                    type: 'PP',
-                    id: '333444666'
-                }]
-            }
-        ],
+        travelers: [passenger],
         shoppingRS: {
             owner: 'C9',
             id: 'REe5fcc483c54442088ba66a4539e7fceb',
@@ -608,5 +608,112 @@ TestData.OrderRetrieve = [
         }
     }
 ];
-
+TestData.ItinReshop = [{
+    order: {
+        id: 'L9A6S1',
+        owner: 'C9'
+    },
+    pointOfSaleEvent: {
+        code: 9,
+        definition: 'Shop'
+    },
+    opCarrier: {
+        id: 'C9',
+        name: 'Kronos Airlines'
+    },
+    onds: [{
+        flights: [{
+            departure: {
+                date: new Date('2016-05-05T06:00:00Z'),
+                airportCode: 'ARN'
+            },
+            arrival: {
+                date: new Date('2016-05-05T08:10:00Z'),
+                airportCode: 'FRA',
+                airportName: 'Frankfurt International'
+            },
+            airline: {
+                id: 'C9',
+                name: 'Kronos Airlines'
+            },
+            number: 809,
+            aircraftCode: '32A',
+            cabin: 'M'
+        }, {
+            departure: {
+                date: new Date('2016-05-05T09:50:00Z'),
+                airportCode: 'FRA',
+                airportName: 'Frankfurt International'
+            },
+            arrival: {
+                date: new Date('2016-05-05T12:55:00Z'),
+                airportCode: 'RIX',
+                airportName: 'Riga Airport'
+            },
+            airline: {
+                id: 'C9',
+                name: 'Kronos Airlines'
+            },
+            number: 890,
+            aircraftCode: '321',
+            aircraftName: '321 - AIRBUS INDUSTRIE A321 JET',
+            cabin: 'M'
+        }]
+    }],
+    travelers: [{
+        key: 'PAX2',
+        name: {
+            surname: 'Smith',
+            given: 'Johnny'
+        },
+        gender: 'Male',
+        count: 1,
+        type: 'CHD'
+    }],
+    fareCodes: ['ESO'],
+    dataList: {
+        travelers: [passenger],
+        onds: [{
+            flights: [{
+                segmentKey: 'SEG1',
+                departure: {
+                    date: new Date('2016-05-05T06:00:00Z'),
+                    airportCode: 'ARN'
+                },
+                arrival: {
+                    date: new Date('2016-05-05T08:10:00Z'),
+                    airportCode: 'FRA',
+                    airportName: 'Frankfurt International'
+                },
+                airline: {
+                    id: 'C9',
+                    name: 'Kronos Airlines'
+                },
+                number: 809,
+                aircraftCode: '32A',
+                detail: 'PT2H10M'
+            }, {
+                segmentKey: 'SEG2',
+                departure: {
+                    date: new Date('2016-05-05T09:50:00Z'),
+                    airportCode: 'FRA',
+                    airportName: 'Frankfurt International'
+                },
+                arrival: {
+                    date: new Date('2016-05-05T12:55:00Z'),
+                    airportCode: 'RIX',
+                    airportName: 'Riga International'
+                },
+                airline: {
+                    id: 'C9',
+                    name: 'Kronos Airlines'
+                },
+                number: 809,
+                aircraftCode: '321',
+                aircraftName: '321 - AIRBUS INDUSTRIE A321 JET',
+                detail: 'PT3H5M'
+            }]
+        }]
+    }
+}]
 module.exports = TestData;

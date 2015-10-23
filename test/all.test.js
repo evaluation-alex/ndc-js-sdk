@@ -76,7 +76,7 @@ describe('NDC client', function () {
             });
         });
     });
-    describe('Order management messages', function () {
+    describe /*.only*/ ('Order management messages', function () {
         var orderID;
         describe('should handle OrderCreate messages', function () {
             it('should receive a successful "OrderViewRS" response element', function (done) {
@@ -121,8 +121,16 @@ describe('NDC client', function () {
             });
         });
         describe('should handle ItinReshop messages', function () {
-            it('pending tests...');
+            it('should receive a successful "ItinReshopRS" response with a "ReShoppingResponseID" element', function (done) {
+                var reqData = testData.ItinReshop[0];
+                reqData.order.id = orderID;
+                ndc.messages.ItinReshop(reqData).request(function (err, data) {
+                    should.not.exist(err);
+                    should.exist(data.ItinReshopRS.Success);
+                    should.exist(data.ItinReshopRS.ReShoppingResponseID.ResponseID);
+                    done();
+                });
+            });
         });
-
     });
 });
