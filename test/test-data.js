@@ -487,22 +487,15 @@ TestData.OrderCreate = [
             }
         ],
         shoppingRS: {
-            owner: 'C9',
-            id: 'REe5fcc483c54442088ba66a4539e7fceb',
+            owner: '9A',
+            id: 'REb766bd5ae7274012ac7ae41f72383792',
             offers: [{
-                owner: 'C9',
+                owner: '9A',
                 id: '1',
                 items: [{
-                    owner: 'C9',
-                    id: '1#M#108115576#108050875',
-                    passenger: 'PAX1',
-                    associatedServices: [{
-                        owner: 'C9',
-                        id: 'SV1'
-                    }, {
-                        owner: 'C9',
-                        id: 'SV2'
-                    }]
+                    owner: '9A',
+                    id: '21#M#110068026',
+                    passenger: 'PAX1'
                 }]
             }]
         },
@@ -525,48 +518,46 @@ TestData.OrderCreate = [
                 email: 'mithalesh@jrtechnologies.com'
             }
         },
-        services: [{
-            key: 'SV1',
-            owner: 'C9',
-            id: '1012',
-            name: 'Excess Baggage',
-            encoding: 'BG',
-            code: 'XBG',
-            feeMethod: 'OC',
-            description: 'To / from all destinations: 1 bag, up to 23kg',
-            media: {
-                id: 'baggage.jpg',
-                link: 'http://kronos.jrtechnologies.com/ServiceImage/baggage.jpg'
+        segments: [{
+            id: "SEG1",
+            departure: {
+                code: "ATH",
+                name: "Athens Eleftherios Venizelos",
+                time: "12:55",
+                date: "2016-06-10"
             },
-            settlement: {
-                code: 'AD',
-                definition: 'Internal Airline Document'
+            arrival: {
+                code: "MUC",
+                name: "Munich International",
+                time: "14:30",
+                date: "2016-06-10"
             },
-            price: {
-                total: 100,
-                passengerReference: 'PAX1'
-            }
-        }, {
-            key: 'SV2',
-            owner: 'C9',
-            id: '1014',
-            name: 'Excess Baggage',
-            encoding: 'BG',
-            code: 'XBG',
-            feeMethod: 'OC',
-            description: 'To / from all destinations:3+ bag, up to 23kg',
-            media: {
-                id: 'baggage.jpg',
-                link: 'http://kronos.jrtechnologies.com/ServiceImage/baggage.jpg'
+            marketingCarrier: {
+                code: "9A",
+                name: "Athena Air",
+                number: "1751"
             },
-            settlement: {
-                code: 'AD',
-                definition: 'Internal Airline Document'
+            operatingCarrier: {
+                code: "9A",
+                name: "Athena Air",
+                number: "1751"
             },
-            price: {
-                total: 10100,
-                passengerReference: 'SH1'
-            }
+            equipment: {
+                code: "321",
+                name: "321-AIRBUSINDUSTRIEA321JET"
+            },
+            duration: "PT1H35M"
+        }],
+        flights: [{
+            id: "FL1",
+            duration: "PT1H35M",
+            segments: "SEG1"
+        }],
+        ods: [{
+            id: "OD1",
+            flights: "FL1",
+            origin: "ATH",
+            destination: "MUC"
         }]
     }
 ];
