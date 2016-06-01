@@ -19,7 +19,7 @@ var version = require('./package.json').version;
 var NDC = function (config) {
     var ndc = this;
     ndc.config = config;
-    ndc.version = '1.1.5';
+    ndc.version = '15.2';
     // Ignore where to get these from
     ndc.transactionID = 'TRN12345';
 
@@ -111,7 +111,7 @@ var NDC = function (config) {
                     '_xsi:schemaLocation': 'http://www.iata.org/IATA/EDIST ../' + name + 'RQ.xsd',
                     _EchoToken: require('crypto').createHash('sha1').update(now).digest().toString('hex'),
                     _TimeStamp: now,
-                    _Version: '1.1.5',
+                    _Version: ndc.version,
                     _TransactionIdentifier: ndc.transactionID
                 });
 
